@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Viewer</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 3D Model Viewer</h1>
+            <p>Search and manage your 3D model collection</p>
+        </header>
+
+        <nav>
+            <a href="index.html" class="active">🔍 Search Models</a>
+            <a href="upload.html">📤 Upload Model</a>
+        </nav>
+
+        <div class="content">
+            <!-- Search Section -->
+            <div class="search-section">
+                <h2>Search Models</h2>
+                <div class="search-container">
+                    <div class="form-group">
+                        <label for="searchTags">Search by Tags</label>
+                        <input type="text" id="searchTags" placeholder="e.g., fantasy, creature, statue">
+                    </div>
+                    <button onclick="searchByTags()">🔍 Search</button>
+                    <button onclick="loadAllModels()" class="btn-secondary">Show All</button>
+                </div>
+            </div>
+
+            <!-- Models Grid -->
+            <div class="models-section">
+                <div class="models-header">
+                    <h2>Models</h2>
+                    <span class="model-count" id="modelCount"></span>
+                </div>
+                <div id="modelsContainer" class="grid">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Loading models...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/search.js"></script>
+</body>
+</html>

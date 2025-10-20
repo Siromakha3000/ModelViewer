@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Model - 3D Model Viewer</title>
+    <link rel="stylesheet" href="css/upload.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 3D Model Viewer</h1>
+            <p>Upload new 3D models to your collection</p>
+        </header>
+
+        <nav>
+            <a href="index.html">🔍 Search Models</a>
+            <a href="upload.html" class="active">📤 Upload Model</a>
+        </nav>
+
+        <div class="content">
+            <div class="upload-section">
+                <h2>Upload New Model</h2>
+                <div id="uploadMessage" class="message"></div>
+
+                <form id="uploadForm">
+                    <div class="form-group">
+                        <label for="modelTitle">Model Title <span style="color: #dc3545;">*</span></label>
+                        <input type="text" id="modelTitle" name="title" placeholder="e.g., Dragon Statue, Castle, Character" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modelTags">Tags <small>(comma-separated, optional)</small></label>
+                        <input type="text" id="modelTags" name="tags" placeholder="e.g., fantasy, statue, creature, medieval">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modelFile">3D Model File <span style="color: #dc3545;">*</span></label>
+                        <div class="file-input-wrapper">
+                            <label class="file-input-label" id="fileInputLabel" for="modelFile">
+                                <div>
+                                    <div class="file-input-icon">📁</div>
+                                    <div class="file-input-text">Click to select file or drag and drop</div>
+                                    <div class="file-input-subtext">Supported: GLB, GLTF, OBJ, FBX, STL, PLY (Max 100MB)</div>
+                                </div>
+                            </label>
+                            <input type="file" id="modelFile" name="file" accept=".glb,.gltf,.obj,.fbx,.stl,.ply" required>
+                        </div>
+                    </div>
+
+                    <div id="uploadProgress" class="upload-progress">
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text"><span id="progressPercent">0</span>%</div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn-submit">Upload Model</button>
+                        <button type="reset" class="btn-reset">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/upload.js"></script>
+</body>
+</html>

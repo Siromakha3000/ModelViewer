@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Viewer - 3D Model Viewer</title>
+    <link rel="stylesheet" href="css/viewer.css">
+</head>
+<body>
+    <div id="messageContainer"></div>
+
+    <div class="container">
+        <header>
+            <h1>🎨 3D Model Viewer</h1>
+            <a href="index.html" class="back-link">← Back to Search</a>
+        </header>
+
+        <nav>
+            <a href="index.html">🔍 Search Models</a>
+            <a href="upload.html">📤 Upload Model</a>
+        </nav>
+
+        <div class="content">
+            <!-- Viewer Section -->
+            <div class="viewer-section">
+                <div id="modelPreview" class="model-preview loading">
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p>Loading model...</p>
+                    </div>
+                </div>
+                <div class="viewer-controls">
+                    <button id="fitViewBtn" class="control-button" title="Fit model to frame">📦 Fit to Frame</button>
+                    <button id="wireframeBtn" class="control-button" title="Toggle wireframe">🔲 Wireframe</button>
+                    <button id="resetViewBtn" class="control-button" title="Reset view">🔄 Reset View</button>
+                    <button id="fullscreenBtn" class="control-button" title="Fullscreen">⛶ Fullscreen</button>
+                </div>
+                <div class="viewer-note">
+                    <strong>ℹ️ Controls:</strong> 
+                    Drag to rotate • Scroll to zoom • Right-click drag to pan
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <!-- Model Details -->
+                <div class="info-card">
+                    <div class="model-title" id="modelTitle">Loading...</div>
+                    <div class="model-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">Format</div>
+                            <div class="meta-value" id="modelFormat">-</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">Created</div>
+                            <div class="meta-value" id="modelDate">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="info-card">
+                    <h3>Tags</h3>
+                    <div id="tagsContainer" class="tags-container">
+                        <span style="color: #999;">No tags</span>
+                    </div>
+                </div>
+
+                <!-- Download Link -->
+                <div class="info-card">
+                    <h3>Download</h3>
+                    <p style="color: #666; margin-bottom: 15px;">Download this model to view it in your preferred 3D viewer.</p>
+                    <a id="downloadLink" href="#" download style="text-decoration: none;">
+                        <button class="action-button btn-download">
+                            ⬇️ Download Model File
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Actions -->
+                <div class="actions-section">
+                    <button class="action-button btn-search" onclick="goToSearch()">
+                        🔍 Search by Tags
+                    </button>
+                    <button class="action-button btn-delete" onclick="deleteCurrentModel()">
+                        🗑️ Delete Model
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Library with all loaders (load synchronously in order) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- Three.js Viewer (uses THREE, GLTFLoader, OBJLoader, STLLoader, OrbitControls) -->
+    <script src="js/three-viewer.js"></script>
+    <!-- Model Viewer Logic (uses viewer global, must load after three-viewer.js) -->
+    <script src="js/viewer.js"></script>
+</body>
+</html>
